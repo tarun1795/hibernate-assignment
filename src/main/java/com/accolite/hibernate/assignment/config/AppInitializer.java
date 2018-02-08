@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.config;
+package com.accolite.hibernate.assignment.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.config;
+package com.accolite.hibernate.assignment.config;
 
 import java.util.Properties;
 
@@ -15,20 +15,16 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 public class DatabaseConfig {
-
-	@Autowired
-	private Environment env;
 
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(env.getProperty("db.driver"));
-		dataSource.setUrl(env.getProperty("db.url"));
-		dataSource.setUsername(env.getProperty("db.username"));
-		dataSource.setPassword(env.getProperty("db.password"));
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/assignment");
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 
@@ -38,11 +34,11 @@ public class DatabaseConfig {
 		factoryBean.setDataSource(getDataSource());
 
 		Properties props = new Properties();
-		props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-		props.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
-		props.put("hibernate.use_sql_commments", env.getProperty("hibernate.use_sql_commments"));
-		props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		props.put("hibernate.show_sql", true);
+		props.put("hibernate.hbm2ddl.auto", "UPDATE");
+		props.put("hibernate.format_sql", true);
+		props.put("hibernate.use_sql_commments", true);
+		props.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		
 		factoryBean.setHibernateProperties(props);
 		factoryBean.setPackagesToScan("com.accolite.hibernate.shoppingcart");

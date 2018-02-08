@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.controllers;
+package com.accolite.hibernate.assignment.controllers;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accolite.hibernate.shoppingcart.dao.OrderDao;
-import com.accolite.hibernate.shoppingcart.models.Order;
+import com.accolite.hibernate.assignment.dao.OrderDao;
+import com.accolite.hibernate.assignment.models.Order;
 
-@RestController("order")
+@RestController
 @RequestMapping("/order")
 @Transactional
 public class OrderController {

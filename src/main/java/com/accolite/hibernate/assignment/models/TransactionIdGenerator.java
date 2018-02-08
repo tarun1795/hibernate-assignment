@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.models;
+package com.accolite.hibernate.assignment.models;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;

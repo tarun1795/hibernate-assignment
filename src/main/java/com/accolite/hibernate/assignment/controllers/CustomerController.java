@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.controllers;
+package com.accolite.hibernate.assignment.controllers;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accolite.hibernate.shoppingcart.dao.CustomerDao;
-import com.accolite.hibernate.shoppingcart.models.Customer;
+import com.accolite.hibernate.assignment.dao.CustomerDao;
+import com.accolite.hibernate.assignment.models.Customer;
 
-@RestController("customer")
+@RestController
 @RequestMapping("/customer")
 @Transactional
 public class CustomerController {
@@ -34,7 +34,7 @@ public class CustomerController {
 	@PostMapping("/")
 	public ResponseEntity<Object> saveCustomer(@RequestBody Customer customer) {
 		try {
-			customerdao.saveCustomer(customer);
+			customerdao.addCustomer(customer);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

@@ -1,4 +1,4 @@
-package com.accolite.hibernate.shoppingcart.config;
+package com.accolite.hibernate.assignment.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,8 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.accolite.hibernate.shoppingcart.dao.CustomerDao;
-import com.accolite.hibernate.shoppingcart.dao.OrderDao;
+import com.accolite.hibernate.assignment.dao.CustomerDao;
+import com.accolite.hibernate.assignment.dao.OrderDao;
 
 @Configuration
 @EnableWebMvc
@@ -31,14 +31,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
+
 	@Bean
-	public OrderDao getOrderDao() {
-		return new OrderDao();
-	}
-	
-	@Bean
-	public CustomerDao getCustomerDao() {
+	public CustomerDao customerDao() {
 		return new CustomerDao();
 	}
+
+	@Bean
+	public OrderDao orderDao() {
+		return new OrderDao();
+	}
+
 }
