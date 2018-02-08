@@ -1,0 +1,1 @@
+package com.accolite.hibernate.shoppingcart.models;
